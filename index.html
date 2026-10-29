@@ -182,7 +182,7 @@ html.rm .r,html.rm .lw>span{opacity:1;transform:none;transition:none}
 html.rm .dot{animation:none}
 .hero-g{display:grid; grid-template-columns:minmax(0,1fr) clamp(230px,26vw,360px); gap:clamp(24px,4vw,60px); align-items:center}
 @media (max-width:900px){.hero-g{grid-template-columns:1fr; gap:32px}}
-h1.big{margin:0; font-weight:800; letter-spacing:-.055em; line-height:.85;
+h1.big{margin:0; font-weight:800; letter-spacing:-.055em; line-height:.85; margin-bottom:clamp(14px,1.8vw,26px);
   font-size:clamp(56px,13.5vw,205px); text-transform:none}
 h1.big .ch{display:inline-block; transform-origin:50% 100%; transition:transform .5s var(--e), color .35s}
 h1.big .ln2{color:var(--ink3)}
@@ -403,6 +403,13 @@ h2 .lt{color:var(--ink3)}
 .rc p{margin:0; color:var(--ink2); font-size:15.2px; line-height:1.58}
 .rc .org{margin-top:18px; font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--ink3)}
+.rec-more{list-style:none; margin:36px 0 0; padding:0; border-top:1px solid var(--line)}
+.rec-more li{display:grid; grid-template-columns:minmax(120px,190px) 1fr; gap:24px; align-items:center;
+  padding:26px 4px; border-bottom:1px solid var(--line)}
+.rm-r{font-size:clamp(40px,5.4vw,72px); font-weight:800; letter-spacing:-.05em; line-height:.9; color:var(--acc)}
+.rec-more h3{margin:0 0 6px; font-size:clamp(19px,1.9vw,24px); font-weight:700; letter-spacing:-.025em}
+.rec-more p{margin:0; color:var(--ink2); font-size:15.2px; line-height:1.58; max-width:60ch}
+@media (max-width:640px){.rec-more li{grid-template-columns:1fr; gap:10px}}
 
 /* ============ CREDS ============ */
 .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px}
@@ -571,7 +578,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc); outline-offse
   transition:border-color .35s var(--e), transform .35s var(--e)}
 .hi:hover{border-color:var(--acc); transform:translateY(-1px)}
 .hi-k{background:var(--acc); color:var(--bg); border-radius:99px; padding:3px 9px; font-size:10px; letter-spacing:.12em}
-.hi-box{position:relative; display:inline-block; overflow:hidden; height:1.9em; min-width:6.4em; vertical-align:middle}
+.hi-box{position:relative; display:inline-block; overflow:hidden; height:1.9em; min-width:6.4em; vertical-align:middle; transition:width .5s var(--e)}
+html.rm .hi-box{transition:none}
 .hi-w{position:absolute; left:0; top:0; display:block; white-space:nowrap; line-height:1.9em;
   font-family:"GR Kannada","GR Devanagari","GR Tamil","GR Telugu","GR Malayalam","Nirmala UI","Noto Sans",system-ui,var(--sans),sans-serif;
   font-size:15px; letter-spacing:0; text-transform:none; color:var(--ink); font-weight:600;
@@ -930,18 +938,22 @@ html.rm .chip.flip-in{animation:none}
 <section class="sec wrap r" id="wins" data-rv>
   <div class="hd">
     <span class="kicker">06 — Recognition</span>
-    <h2 class="lw"><span>Two competitive <span class="lt">outcomes.</span></span></h2>
+    <h2 class="lw"><span>Placed, selected, <span class="lt">and on stage.</span></span></h2>
   </div>
   <div class="rec">
     <div class="rc"><span class="badge">1st Runner-Up · 2026</span>
       <h3>CAHOCON 2026</h3>
-      <p>Paper presentation, student category — “Ethical AI Implementation in Indian Hospitals: A Practical Governance Framework”. Recognised for technical depth and practical relevance to digital transformation in healthcare.</p>
+      <p>Platform presentation in the clinical category at the Chennai Trade Centre: “Ethical AI Implementation in Indian Hospitals: A Practical Governance Framework”. Recognised for technical depth and practical relevance to digital transformation in healthcare.</p>
       <p class="org">Consortium of Accredited Healthcare Organisations</p></div>
     <div class="rc"><span class="badge">Selected · 2026</span>
       <h3>Biomedical Data Summer Programme</h3>
       <p>Selected through a competitive process for a residential programme at Ashoka University, Sonipat, 27 July – 14 August 2026, with an international academic component involving Yale University and the University of Michigan.</p>
       <p class="org">Ashoka University</p></div>
   </div>
+  <ol class="rec-more">
+    <li><span class="rm-r">3rd</span><div><h3>Hackathon, BITS Pilani Digital</h3><p>Placed third.</p></div></li>
+    <li><span class="rm-r">MC</span><div><h3>Graduation ceremony</h3><p>Hosted the ceremony as Master of Ceremonies and delivered the Graduates’ Talk.</p></div></li>
+  </ol>
 </section>
 
 <!-- BACKGROUND -->
@@ -964,7 +976,7 @@ html.rm .chip.flip-in{animation:none}
 <section class="sec wrap r" id="creds" data-rv>
   <div class="hd">
     <span class="kicker">08 — Credentials</span>
-    <h2 class="lw"><span>Courses <span class="lt">&amp; conferences.</span></span></h2>
+    <h2 class="lw"><span>Courses, conferences <span class="lt">&amp; writing.</span></span></h2>
     <p class="sub">Conference roles are stated exactly. Attendance is never presented as speaking.</p>
   </div>
   <div class="filters" id="filters"></div>
@@ -1182,7 +1194,8 @@ var CR=[
  ["Bengaluru Tech Summit","Attendee","conf",0],
  ["India's First AI Literacy Summit","Attendee","conf",0],
  ["Let's Talk AI — Inaugural Summit","Attendee","conf",0],
- ["Syna Human AI","Attendee","conf",0]
+ ["Syna Human AI","Attendee","conf",0],
+ ["Ethical AI in Indian hospitals, a reading of Karen Hao’s <i>Empire of AI</i>","LinkedIn article","pub",1]
 ];
 var chipsEl=document.getElementById("chips");
 function renderChips(f){
@@ -1192,7 +1205,7 @@ function renderChips(f){
   }).join("");
 }
 renderChips("all");
-var FIL=[["all","All"],["course","Courses"],["conf","Conferences"]];
+var FIL=[["all","All"],["course","Courses"],["conf","Conferences"],["pub","Writing"]];
 document.getElementById("filters").innerHTML=FIL.map(function(f,i){
   return '<button class="fbtn'+(i===0?" on":"")+'" data-f="'+f[0]+'" type="button">'+f[1]+'</button>';
 }).join("");
@@ -1894,7 +1907,7 @@ function cursorLabel(el,text){
     var old=box.querySelector(".hi-w:not(.out)");
     var s=document.createElement("span"); s.className="hi-w in"+(L[n][1]==="English"?" lat":"");
     s.textContent=L[n][0]; box.appendChild(s);
-    void s.offsetWidth; s.classList.remove("in");
+    void s.offsetWidth; box.style.width=Math.ceil(s.scrollWidth+4)+"px"; s.classList.remove("in");
     if(old){old.classList.add("out"); setTimeout(function(){if(old.parentNode)old.parentNode.removeChild(old);},650);}
     lab.textContent=L[n][1];
     btn.setAttribute("aria-label","Hello in "+L[n][1]+". Press for the next of the six languages I speak.");
